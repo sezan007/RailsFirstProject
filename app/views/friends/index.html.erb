@@ -1,0 +1,30 @@
+
+
+<h1>Friends</h1>
+
+<table class="table table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Twitter</th>
+      <th>User Id</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.first_name + " "+friend.last_name %></td>
+        <td><%= friend.email %></td>
+        <td><%= friend.twitter %></td>
+        <td><%= friend.user_id %></td>
+        <td><%= link_to "Show", friend %></td>
+        <td><%= link_to "Edit", edit_friend_path(friend) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<button type="button" class="btn btn-secondary"><%= link_to "New friend", new_friend_path %></button>
